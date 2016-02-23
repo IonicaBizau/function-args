@@ -15,20 +15,43 @@ $ npm i --save function-args
 
 const functionArgs = require("function-args");
 
-console.log(functionArgs());
+console.log(functionArgs(x => x * x));
+// [ 'x' ]
+
+console.log(functionArgs((a, b) => a + b));
+// [ 'a', ' b' ]
+
+console.log(functionArgs(function (a, b) { return a + b; }));
+// [ 'a', ' b' ]
+
+class Foo {
+    static bar (a, b) {}
+    baz (a, b) {}
+}
+
+console.log(functionArgs(Foo.bar));
+// [ 'a', ' b' ]
+
+console.log(functionArgs((new Foo()).baz));
+// [ 'a', ' b' ]
+
+console.log(functionArgs(function () {}));
+// []
+
+console.log(functionArgs(() => {}));
+// []
 ```
 
 ## Documentation
 
-### `functionArgs(a, b)`
+### `functionArgs(fn)`
 Extract the function argument names.
 
 #### Params
-- **Number** `a`: Param descrpition.
-- **Number** `b`: Param descrpition.
+- **Function** `fn`: The function value.
 
 #### Return
-- **Number** Return description.
+- **Array** The function arguments as array.
 
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
