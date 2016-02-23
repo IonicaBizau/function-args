@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/IonicaBizau/function-args/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/function-args#readme"
+  "homepage": "https://github.com/IonicaBizau/function-args#readme",
+  "dependencies": {
+    "strip-comments": "^0.4.4"
+  }
 }
