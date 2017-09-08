@@ -6,6 +6,7 @@ You can see below the API reference of this module.
 Extract the function argument names.
 
 #### Params
+
 - **Function** `fn`: The function value.
 
 #### Return
